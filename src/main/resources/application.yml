@@ -1,0 +1,35 @@
+server:
+  port: 8088
+
+#logging:
+#  level:
+#    org.springframework: debug
+
+spring:
+  message:
+    basename: messages
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    defer-datasource-initialization: true #초기데이터 스크립트 파일이 있을 경우 hibernate 초기화 이후 바로 작동할 수 있는 옵션
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+
+#  security:
+#    user:
+#      name: xognstl
+#      password: DDdlfwh12!
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+#        include: "self, health, beans" 이런식으로 가능
